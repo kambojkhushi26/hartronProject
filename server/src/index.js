@@ -1,12 +1,12 @@
 const express = require('express');
 const mongoose = require('mongoose');
+require('dotenv').config()
 
 const app = express()
 
-const portId = 5000;
-let DB = 'mongodb+srv://kambojkhushi26:mQk06WBkZMTsaX1p@cluster0.mw7lz.mongodb.net/project';
+const portId = 5000 || process.env.PORT;
 
-mongoose.connect(DB)
+mongoose.connect(process.env.MongooseDB)
         .then(() => { console.log('MongoBD Connected') })
         .catch((err) => { console.log(err); })
 
